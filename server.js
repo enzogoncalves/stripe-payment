@@ -6,6 +6,10 @@ const app = express()
 app.use(express.json())
 app.use(express.static("public"))
 
+app.get("/", (req, res) => {
+	res.render("index")
+})
+
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 const storeItems = new Map([
